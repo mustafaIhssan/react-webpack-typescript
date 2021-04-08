@@ -3,7 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: {
+    index: path.resolve(__dirname, '..', './src/index.tsx'),
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', 'json'],
   },
@@ -34,7 +36,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
